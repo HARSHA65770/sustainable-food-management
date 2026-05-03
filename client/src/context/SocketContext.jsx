@@ -13,7 +13,7 @@ export function SocketProvider({ children }) {
     useEffect(() => {
         if (!token) return;
 
-        const s = io('/', {
+        const s = io(import.meta.env.VITE_SOCKET_URL || '/', {
             transports: ['websocket', 'polling']
         });
 

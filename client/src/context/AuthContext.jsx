@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
     const [token, setToken] = useState(localStorage.getItem('token'));
     const [loading, setLoading] = useState(true);
 
-    const API = axios.create({ baseURL: '/api' });
+    const API = axios.create({ baseURL: import.meta.env.VITE_API_URL || '/api' });
 
     // Attach token to all requests
     API.interceptors.request.use((config) => {
