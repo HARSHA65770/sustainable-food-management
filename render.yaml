@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sustainable-food-management
+    runtime: node
+    branch: master
+    buildCommand: npm run render-build
+    startCommand: cd server && npm start
+    plan: free
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: NODE_ENV
+        value: production
